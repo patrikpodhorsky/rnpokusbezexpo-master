@@ -1,0 +1,33 @@
+image: node:8
+
+stages:
+  - build
+  - publish
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+before_script:
+  - yarn
+
+publish:android:package:
+  stage: publish
+  image: reactnativecommunity/react-native-android
+  only:
+    - /^release/android/.*$/
+  script:
+    - echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
+    - mv $PLAY_STORE_JSON android/app/play-store.json
+    - mkdir android/app/src/main/assets
+    - yarn bundle-android
+    - rm -rf android/app/src/main/res/drawable-*
+    - rm -rf android/app/src/main/res/raw/*
+    - yarn publish-package-android --no-daemon
+  artifacts:
+    paths:
+      - ./android/app/build/outputs/

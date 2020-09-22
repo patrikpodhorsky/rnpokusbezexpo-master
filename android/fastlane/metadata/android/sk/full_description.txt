@@ -1,0 +1,1 @@
+Aplikacia sluziaca ako demonstracia moznosti react native

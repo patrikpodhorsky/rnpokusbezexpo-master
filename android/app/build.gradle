@@ -229,7 +229,7 @@ play {
     defaultToAppBundles = true
     track = "internal" // beta, alpha, production.
 //     releaseStatus = "draft"
-    serviceAccountCredentials = file("./play-store.json")
+    serviceAccountCredentials = file("play-store.json")
     resolutionStrategy = "auto"
 //     outputProcessor {
 //         versionNameOverride = "$versionNameOverride.$versionCode"

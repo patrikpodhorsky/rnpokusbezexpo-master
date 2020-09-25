@@ -170,16 +170,6 @@ workflows:
   version : 2
   node-android-ios:
     jobs:
-      - android-hold: 
-         type: approval
-          filters:            
-  branches:              
-    only: master
-      - ios-hold:
-        type: approval
-         filters:            
-  branches:              
-    only: master
       - node:
          filters:            
   branches:              
@@ -192,7 +182,6 @@ workflows:
     only: master
       - android-beta:
           requires:
-            - android-hold
              filters:            
   branches:              
     only: master

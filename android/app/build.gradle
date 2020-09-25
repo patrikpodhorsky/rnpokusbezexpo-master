@@ -231,7 +231,7 @@ apply from: file("../../node_modules/@react-native-community/cli-platform-androi
 
 play {
     defaultToAppBundles = true
-    track = "internal" // beta, alpha, production.
+    track = "alpha" // beta, alpha,internal, production.
 //     releaseStatus = "draft"
     serviceAccountCredentials = file("../play-store.json")
     resolutionStrategy = "auto"

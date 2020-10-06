@@ -150,6 +150,6 @@ workflows:
       - android-alpha:
           requires:
             - node
-      # - macos-build-and-test:
-      #     requires:
-      #       - node
+       - macos-build-and-test:
+           requires:
+             - node

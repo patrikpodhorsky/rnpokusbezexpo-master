@@ -147,9 +147,9 @@ workflows:
   node-android-ios:
     jobs:
       - node
-      - android-alpha:
+      #- android-alpha:
+       #   requires:
+       #     - node
+      - macos-build-and-test:
           requires:
             - node
-       - macos-build-and-test:
-           requires:
-             - node
